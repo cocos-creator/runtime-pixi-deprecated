@@ -1,0 +1,30 @@
+<dom-module id="inspector-runtime-display-object-section">
+    <style>
+    </style>
+
+    <template>
+        <editor-section text="Transform">
+            <editor-prop prop="{{target.position}}"></editor-prop>
+            <editor-prop prop="{{target.rotation}}"></editor-prop>
+            <editor-prop prop="{{target.scale}}"></editor-prop>
+        </editor-section>
+
+        <editor-section text="Visual">
+            <editor-prop prop="{{target.pivot}}"></editor-prop>
+        </editor-section>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'inspector-runtime-display-object-section',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+    });
+</script>
