@@ -99,31 +99,6 @@ var ContainerWrapper = Fire.Class({
         }
     },
 
-    addChild: function (child) {
-        this.targetN.addChild( child );
-    },
-
-    removeChild: function (child, cleanup) {
-        this.targetN.removeChild( child );
-    },
-
-    _deepQueryChildren: function (cb) {
-
-        function traversal (node, cb) {
-            var children = node.children;
-
-            for (var i = 0; i<children.length; i++) {
-                var child = children[i];
-
-                if (!cb( child )) break;
-
-                traversal(child, cb);
-            }
-        }
-
-        traversal(this, cb);
-    },
-
     transformPointToWorld: function (point) {
         var temp = new PIXI.Point();
         this.targetN.worldTransform.apply(point, temp);
