@@ -1,7 +1,7 @@
 {
   "name": "pixi",
   "version": "0.0.1",
-  "runtime-version": "3.0.6",
+  "engine-version": "3.0.6",
   "link": "https://github.com/GoodBoyDigital/pixi.js",
   "description": "The aim of this project is to provide a fast lightweight 2D library that works across all devices. The Pixi renderer allows everyone to enjoy the power of hardware acceleration without prior knowledge of WebGL. Also, it's fast. Really fast.",
   "repository": {
@@ -9,7 +9,35 @@
     "url": "https://github.com/fireball-x/runtime-pixi.git"
   },
   "author": "Firebox Technology",
-  "dependencies": {
-    "pixi": "3.0.6"
+  "devDependencies": {
+    "browserify": "10.2.1",
+    "del": "1.1.1",
+    "event-stream": "",
+    "gulp": "",
+    "gulp-cached": "^1.0.1",
+    "gulp-concat": "2.5.2",
+    "gulp-header": "",
+    "gulp-jshint": "1.9.2",
+    "gulp-mirror": "^0.4.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "",
+    "jshint-stylish": "1.0.0",
+    "require-dir": "^0.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "1.0.0",
+    "xmldom": "^0.1.19"
+  },
+  "build": {
+    "scriptsDev": [
+      "lib/pixi.js",
+      "bin/runtime-pixi.js"
+    ],
+    "scriptsMin": [
+      "lib/pixi.min.js",
+      "bin/runtime-pixi.min.js"
+    ]
   }
 }
