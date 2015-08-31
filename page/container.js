@@ -158,4 +158,20 @@ var ContainerWrapper = Fire.Class({
     }
 });
 
+
+if (FIRE_EDITOR) {
+    var originAddChildAt = PIXI.Container.prototype.addChildAt;
+    PIXI.Container.prototype.addChildAt = function () {
+        var child = originAddChildAt.apply(this, arguments);
+        Helpers.onNodeAttachedToParent(child);
+    }
+
+    var originRemoveChildAt = PIXI.Container.prototype.removeChildAt;
+    PIXI.Container.prototype.removeChildAt = function () {
+        var child = originRemoveChildAt.apply(this, arguments);
+        Helpers.onNodeDetachedFromParent(child);
+    }
+}
+
+
 Runtime.ContainerWrapper = module.exports = ContainerWrapper;

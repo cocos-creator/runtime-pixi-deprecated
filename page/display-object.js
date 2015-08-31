@@ -1,7 +1,6 @@
 var Vec2 = Fire.Vec2;
 var Rect = Fire.Rect;
 var Color = Fire.Color;
-var Helpers = Fire.Runtime.Helpers;
 
 
 var DisplayObjectWrapper = Fire.Class({
@@ -28,16 +27,10 @@ var DisplayObjectWrapper = Fire.Class({
             set: function (value) {
                 if (this.parentN) {
                     this.parentN.removeChild(this.targetN);
-
-                    if (FIRE_EDITOR)
-                        Helpers.onNodeDetachedFromParent(this.targetN);
                 }
 
                 if (value) {
                     value.addChild(this.targetN);
-
-                    if (FIRE_EDITOR)
-                        Helpers.onNodeAttachedToParent(this.targetN);
                 }
             },
             visible: false
