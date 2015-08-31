@@ -49,11 +49,11 @@ var EngineWrapper = Fire.Class({
             'resolution'            : Fire.isEditor ? 1 : 2,     
         };
 
-        this._renderer = PIXI_FUEL.autoDetectRenderer( width , height , config , false);
+        this._renderer = PIXI.autoDetectRenderer( width , height , config , false);
 
         this.canvasSize = Fire.v2(width, height);
         this.designResolution = Fire.v2(options.designWidth, options.designHeight);
-        this._setCurrentSceneN(new PIXI_FUEL.Container());
+        this._setCurrentSceneN(new PIXI.Container());
 
         if (callback) {
             callback();
