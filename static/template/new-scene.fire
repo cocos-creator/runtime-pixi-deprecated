@@ -9,7 +9,7 @@
     }
   },
   {
-    "__type__": "Runtime.SceneWrapper",
+    "__type__": "Runtime.ContainerWrapper",
     "content": []
   }
 ]
