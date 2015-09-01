@@ -30,6 +30,7 @@ if ( !Editor.isRuntime ) {
         Editor.inspectors['Runtime.ContainerWrapper'] = 'app://runtime/runtime-pixi/share/inspector/container-wrapper.html';
         Editor.inspectors['Runtime.SpriteWrapper'] = 'app://runtime/runtime-pixi/share/inspector/sprite-wrapper.html';
         Editor.inspectors['Runtime.TextWrapper'] = 'app://runtime/runtime-pixi/share/inspector/text-wrapper.html';
+        Editor.inspectors['Runtime.GraphicsWrapper'] = 'app://runtime/runtime-pixi/share/inspector/graphics-wrapper.html';
         Editor.inspectors['Runtime.MovieClipWrapper'] = 'app://runtime/runtime-pixi/share/inspector/movie-clip-wrapper.html';
 
         // register property

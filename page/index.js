@@ -17,6 +17,7 @@ var types = [
     [PIXI,          'DisplayObject',    require('./display-object')],
     [PIXI,          'Sprite',           require('./sprite'),                'Sprite'],
     [PIXI,          'Text',             require('./text'),                  'Text'],
+    [PIXI,          'Graphics',         require('./graphics'),              'Graphics'],
 
     [PIXI.extras,   'MovieClip',        require('./extras/movie-clip'),     'MovieClip'],
 ];

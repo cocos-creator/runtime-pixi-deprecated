@@ -1,0 +1,36 @@
+<link rel="import" href="packages://inspector/share/node-header.html">
+<link rel="import" href="packages://inspector/share/mixins-section.html">
+<link rel="import" href="display-object-section.html">
+
+<dom-module id="runtime-graphics-wrapper-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-node-header
+            name="{{target.name.value}}"
+        >
+        </inspector-node-header>
+
+        <div class="props flex-1">
+            <inspector-runtime-display-object-section target="{{target}}">
+            </inspector-runtime-display-object-section>
+
+            <inspector-mixins-section target="{{target}}">
+            </inspector-mixins-section>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'runtime-graphics-wrapper-inspector',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+    });
+</script>
