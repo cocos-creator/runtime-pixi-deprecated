@@ -26,6 +26,9 @@ var ContainerWrapper = Fire.Class({
             }
         },
 
+        _alpha: {
+            default: 1
+        }
     },
 
     onBeforeSerialize: function () {

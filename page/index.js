@@ -18,6 +18,7 @@ var types = [
     [PIXI,          'Sprite',           require('./sprite'),                'Sprite'],
     [PIXI,          'Text',             require('./text'),                  'Text'],
     [PIXI,          'Graphics',         require('./graphics'),              'Graphics'],
+    [PIXI,          'ParticleContainer',require('./particle-container'),    'ParticleContainer'],
 
     [PIXI.extras,   'MovieClip',        require('./extras/movie-clip'),     'MovieClip'],
 ];
