@@ -30,25 +30,6 @@ var SpriteWrapper = Fire.Class({
             }
         },
 
-        size: {
-            get: function () {
-                return Fire.v2(this.targetN.width, this.targetN.height);
-            },
-            set: function (value) {
-                this.targetN.width = value.x;
-                this.targetN.height = value.y;
-            }
-        },
-
-        alpha: {
-            get: function () {
-                return this.targetN.alpha;
-            },
-            set: function (value) {
-                this.targetN.alpha = value;
-            }
-        },
-
         tint: {
             get: function () {
                 var color = Fire.Color.fromHex( this.targetN.tint );
@@ -72,10 +53,6 @@ var SpriteWrapper = Fire.Class({
             default: null
         },
 
-        _alpha: {
-            default: 1
-        },
-
         _tint: {
             default: 0xffffff
         }
@@ -86,8 +63,6 @@ var SpriteWrapper = Fire.Class({
 
         this._texture = this.texture;
         this._anchor = [this.anchor.x, this.anchor.y];
-        this._alpha = this.alpha;
-
         this._tint = this.targetN.tint;
     },
 
@@ -104,7 +79,6 @@ var SpriteWrapper = Fire.Class({
             node.anchor.set(this._anchor[0], this._anchor[1]);
         }
 
-        node.alpha = this._alpha;
         node.tint = this._tint;
 
         return node;
