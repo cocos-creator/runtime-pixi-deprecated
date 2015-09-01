@@ -61,6 +61,12 @@ var EngineWrapper = Fire.Class({
         this.designResolution = Fire.v2(options.designWidth, options.designHeight);
         this._setCurrentSceneN(new PIXI.Container());
 
+        // Stop shared tick in editor
+        if (FIRE_EDITOR) {
+            PIXI.ticker.shared.stop();
+            PIXI.ticker.shared.autoStart = false;
+        }
+
         if (callback) {
             callback();
         }
@@ -84,8 +90,8 @@ var EngineWrapper = Fire.Class({
 
     updateRuntime: function (dt) {
         Runtime.deepQueryChildren(this._stage, function (child) {
-            if (child.update) {
-                child.update(dt);
+            if (child.tick) {
+                child.tick(dt);
             }
             return true;
         });
