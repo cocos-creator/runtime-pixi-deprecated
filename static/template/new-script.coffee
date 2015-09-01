@@ -11,6 +11,6 @@ Fire.Class {
         #   readonly: false    # [optional], default is false
     }
 
-    update: (dt) ->
+    tick: (dt) ->
         # do your update here
 }

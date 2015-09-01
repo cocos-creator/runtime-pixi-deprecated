@@ -20,7 +20,7 @@ Fire.Class({
     },
 
     // called every frame
-    update: function (dt) {
+    tick: function (dt) {
 
     },
 });
