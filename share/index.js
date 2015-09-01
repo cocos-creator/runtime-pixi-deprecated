@@ -34,6 +34,10 @@ if ( !Editor.isRuntime ) {
         Editor.properties['Runtime.SpriteSheet'] = function ( fieldEL, info ) {
             return Editor.bindAsset( fieldEL, info.value, info.attrs, 'sprite-sheet' );
         };
+
+        Editor.properties['Runtime.DisplayObjectWrapper'] = function ( fieldEL, info ) {
+            return Editor.bindNode( fieldEL, info.value, info.attrs, 'Runtime.DisplayObjectWrapper' );
+        };
     }
 }
 
