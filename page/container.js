@@ -142,7 +142,7 @@ var ContainerWrapper = Fire.Class({
     },
 
     onBeforeSerialize: function () {
-        this._scale = [this.scaleX, this.scaleY];
+        this._scale = [this.scale.x, this.scale.y];
         this._position = [this.position.x, this.position.y];
     },
 
@@ -151,8 +151,8 @@ var ContainerWrapper = Fire.Class({
 
         node.x = this._position ? this._position[0] : 0;
         node.y = this._position ? this._position[1] : 0;
-        node.scaleX = this._scale ? this._scale[0] : 1;
-        node.scaleY = this._scale ? this._scale[1] : 1;
+        node.scale.x = this._scale ? this._scale[0] : 1;
+        node.scale.y = this._scale ? this._scale[1] : 1;
 
         return node;
     }

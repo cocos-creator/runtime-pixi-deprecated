@@ -13,7 +13,7 @@ var EngineWrapper = Fire.Class({
             type: Fire.Vec2,
 
             notify: function () {
-                this.renderer.resize( this.canvasSize.x, this.canvasSize.y );
+                this._renderer.resize( this.canvasSize.x, this.canvasSize.y );
             }
         },
 
@@ -24,6 +24,15 @@ var EngineWrapper = Fire.Class({
             set: function (value) {
                 this._designResolution = value;
             }
+        },
+        _renderer: {
+            default: null
+        },
+        _stage: {
+            default: null
+        },
+        _designResolution: {
+            default: null
         }
     },
 
@@ -32,18 +41,23 @@ var EngineWrapper = Fire.Class({
         var height = options.height || 480;
         var canvas = options.canvas;
 
-        this.renderer = new PIXI.WebGLRenderer( width, height, {
-            view: canvas,
-            transparent: true,
-            antialias: false,
-            forceFXAA: false,
-        });
+        var config = {
+            'view'                  : canvas,
+            'transparent'           : true,
+            'antialias'             : false,
+            'preserveDrawingBuffer' : false,
+            'resolution'            : Fire.isEditor ? 1 : 2,     
+        };
+
+        this._renderer = PIXI.autoDetectRenderer( width , height , config , false);
 
         this.canvasSize = Fire.v2(width, height);
         this.designResolution = Fire.v2(options.designWidth, options.designHeight);
         this._setCurrentSceneN(new PIXI.Container());
 
-        callback();
+        if (callback) {
+            callback();
+        }
     },
 
     playRuntime: function () {
@@ -72,7 +86,7 @@ var EngineWrapper = Fire.Class({
     },
 
     renderRuntime: function () {
-        this.renderer.render(this._stage);
+        this._renderer.render(this._stage);
     },
 
     _setCurrentSceneN: function (scene) {
