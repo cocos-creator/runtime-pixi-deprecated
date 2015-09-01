@@ -14,6 +14,12 @@ var EngineWrapper = Fire.Class({
 
             notify: function () {
                 this._renderer.resize( this.canvasSize.x, this.canvasSize.y );
+
+                var renderer = this._renderer;
+                var view = renderer.view;
+
+                view.style.width = renderer.width / renderer.resolution + 'px';
+                view.style.height = renderer.height / renderer.resolution + 'px';
             }
         },
 
@@ -46,7 +52,7 @@ var EngineWrapper = Fire.Class({
             'transparent'           : true,
             'antialias'             : false,
             'preserveDrawingBuffer' : false,
-            'resolution'            : Fire.isEditor ? 1 : 2,     
+            'resolution'            : Fire.isEditor ? 1 : window.devicePixelRatio,
         };
 
         this._renderer = PIXI.autoDetectRenderer( width , height , config , false);
