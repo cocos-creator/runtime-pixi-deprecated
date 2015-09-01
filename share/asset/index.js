@@ -1,6 +1,7 @@
 // hard code for browserify
 
 require('./texture');
+require('./sprite-sheet');
 
 if ( FIRE_EDITOR && Editor.assets ) {
     [

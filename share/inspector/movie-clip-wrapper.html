@@ -1,0 +1,53 @@
+<link rel="import" href="packages://inspector/share/node-header.html">
+<link rel="import" href="packages://inspector/share/mixins-section.html">
+<link rel="import" href="display-object-section.html">
+<link rel="import" href="sprite-section.html">
+
+<dom-module id="runtime-movie-clip-wrapper-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-node-header
+            name="{{target.name.value}}"
+        >
+        </inspector-node-header>
+
+        <div class="props flex-1">
+            <inspector-runtime-display-object-section target="{{target}}">
+            </inspector-runtime-display-object-section>
+
+            <inspector-runtime-sprite-section target="{{target}}">
+            </inspector-runtime-sprite-section>
+
+            <editor-section text="SpriteSheet">
+                <editor-prop prop="{{target.spriteSheet}}"></editor-prop>
+                <editor-prop prop="{{target.prefix}}"></editor-prop>
+                <editor-prop prop="{{target.subfix}}"></editor-prop>
+                <editor-prop prop="{{target.range}}"></editor-prop>
+            </editor-section>
+
+            <editor-section text="MovieClip">
+                <editor-prop prop="{{target.autoPlay}}"></editor-prop>
+                <editor-prop prop="{{target.loop}}"></editor-prop>
+                <editor-prop prop="{{target.animationSpeed}}"></editor-prop>
+            </editor-section>
+
+            <inspector-mixins-section target="{{target}}">
+            </inspector-mixins-section>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'runtime-movie-clip-wrapper-inspector',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+    });
+</script>
