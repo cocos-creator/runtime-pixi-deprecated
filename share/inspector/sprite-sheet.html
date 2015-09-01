@@ -1,0 +1,20 @@
+<link rel="import" href="packages://inspector/share/meta-header.html">
+
+<dom-module id="sprite-sheet-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-meta-header
+            target="[[target]]"
+            icon="app://runtime/runtime-pixi/static/icon/sprite-sheet.png"
+            dirty="{{dirty}}"
+        >
+        </inspector-meta-header>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'sprite-sheet-inspector',
+    });
+</script>

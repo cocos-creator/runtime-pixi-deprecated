@@ -6,9 +6,6 @@ Runtime.init = function (assetdb) {
         ED.versions['pixi'] = packageJson['engine-version'];
         ED.versions['runtime-pixi'] = packageJson['version'];
 
-        // Editor.assetdb.register( '.plist', false, Editor.metas['sprite-atlas'] );
-        // Editor.assetdb.register( '.plist', false, Editor.metas['particle'] );
-        // Editor.assetdb.register( '.animation', false, Editor.metas['sprite-animation'] );
-        // Editor.assetdb.register( '.tmx', false, Editor.metas['tiled-map'] );
+        Editor.assetdb.register( '.json', false, Editor.metas['sprite-sheet'] );
     }
 };
