@@ -11,13 +11,13 @@ Fire.Runtime.registerEngine( new EngineWrapper(true) );
 
 // register node type
 var types = [
-    [PIXI.fireball, 'Stage',             require('./stage')],
+    [PIXI.fireball, 'Stage',            require('./stage')],
 
-    // [PIXI,   'Container',          require('./container')],
-    [PIXI,   'DisplayObject',      require('./display-object')],
-    [PIXI,   'Sprite',             require('./sprite'),          'Sprite'],
+    [PIXI,          'Container',        require('./container'),             'Container'],
+    [PIXI,          'DisplayObject',    require('./display-object')],
+    [PIXI,          'Sprite',           require('./sprite'),                'Sprite'],
 
-    [PIXI.extras,   'MovieClip',   require('./extras/movie-clip'),      'MovieClip'],
+    [PIXI.extras,   'MovieClip',        require('./extras/movie-clip'),     'MovieClip'],
 ];
 
 
