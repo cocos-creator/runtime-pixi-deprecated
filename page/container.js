@@ -29,7 +29,7 @@ var ContainerWrapper = Fire.Class({
     },
 
     onBeforeSerialize: function () {
-        ContainerWrapper.prototype.onBeforeSerialize.call(this);
+        DisplayObjectWrapper.prototype.onBeforeSerialize.call(this);
 
         this._alpha = this.alpha;
     },
