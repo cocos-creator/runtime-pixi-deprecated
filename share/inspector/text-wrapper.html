@@ -1,0 +1,56 @@
+<link rel="import" href="packages://inspector/share/node-header.html">
+<link rel="import" href="packages://inspector/share/mixins-section.html">
+<link rel="import" href="display-object-section.html">
+
+<dom-module id="runtime-text-wrapper-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-node-header
+            name="{{target.name.value}}"
+        >
+        </inspector-node-header>
+
+        <div class="props flex-1">
+            <inspector-runtime-display-object-section target="{{target}}">
+            </inspector-runtime-display-object-section>
+
+            <editor-section text="Text">
+                <editor-prop prop="{{target.text}}"></editor-prop>
+                <editor-prop prop="{{target.font}}"></editor-prop>
+                <editor-prop prop="{{target.fill}}"></editor-prop>
+                <editor-prop prop="{{target.align}}"></editor-prop>
+                <editor-prop prop="{{target.stroke}}"></editor-prop>
+                <editor-prop prop="{{target.strokeThickness}}"></editor-prop>
+                <editor-prop prop="{{target.wordWrap}}"></editor-prop>
+                <editor-prop prop="{{target.wordWrapWidth}}"></editor-prop>
+                <editor-prop prop="{{target.lineHeight}}"></editor-prop>
+                <editor-prop prop="{{target.dropShadow}}"></editor-prop>
+                <editor-prop prop="{{target.dropShadowColor}}"></editor-prop>
+                <editor-prop prop="{{target.dropShadowAngle}}"></editor-prop>
+                <editor-prop prop="{{target.dropShadowDistance}}"></editor-prop>
+                <editor-prop prop="{{target.padding}}"></editor-prop>
+                <editor-prop prop="{{target.textBaseline}}"></editor-prop>
+                <editor-prop prop="{{target.lineJoin}}"></editor-prop>
+                <editor-prop prop="{{target.miterLimit}}"></editor-prop>
+            </editor-section>
+
+            <inspector-mixins-section target="{{target}}">
+            </inspector-mixins-section>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'runtime-text-wrapper-inspector',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+    });
+</script>
