@@ -4,6 +4,7 @@ var EngineWrapper = require('./engine');
 
 // require modules
 require('./utils');
+require('./types');
 require('./extends');
 
 // register engine wrapper

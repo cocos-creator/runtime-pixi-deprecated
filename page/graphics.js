@@ -6,6 +6,17 @@ var GraphicsWrapper = Fire.Class({
     extends: ContainerWrapper,
 
     properties: {
+
+        blendMode: {
+            get: function () {
+                return this.targetN.blendMode;
+            },
+            set: function (value) {
+                this.targetN.blendMode = value;
+            },
+            type: Runtime.BLEND_MODES
+        },
+
         tint: {
             get: function () {
                 var color = Fire.Color.fromHex( this.targetN.tint );
@@ -22,6 +33,10 @@ var GraphicsWrapper = Fire.Class({
 
         _tint: {
             default: 0xffffff
+        },
+
+        _blendMode: {
+            default: Runtime.BLEND_MODES.NORMAL
         }
     },
 
@@ -29,6 +44,7 @@ var GraphicsWrapper = Fire.Class({
         ContainerWrapper.prototype.onBeforeSerialize.call(this);
 
         this._tint = this.targetN.tint;
+        this._blendMode = this.blendMode;
     },
 
     createNode: function (node) {
@@ -37,6 +53,7 @@ var GraphicsWrapper = Fire.Class({
         ContainerWrapper.prototype.createNode.call(this, node);
 
         node.tint = this._tint;
+        node.blendMode = this._blendMode;
 
         return node;
     }

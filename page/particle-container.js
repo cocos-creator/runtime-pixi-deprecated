@@ -6,6 +6,16 @@ var ParticleContainerWrapper = Fire.Class({
     extends: ContainerWrapper,
 
     properties: {
+        blendMode: {
+            get: function () {
+                return this.targetN.blendMode;
+            },
+            set: function (value) {
+                this.targetN.blendMode = value;
+            },
+            type: Runtime.BLEND_MODES
+        },
+
         maxSize: {
             default: 15000
         },
@@ -28,6 +38,10 @@ var ParticleContainerWrapper = Fire.Class({
 
         enableAlpha: {
             default: false
+        },
+
+        _blendMode: {
+            default: Runtime.BLEND_MODES.NORMAL
         }
     },
 
@@ -47,6 +61,8 @@ var ParticleContainerWrapper = Fire.Class({
 
     onBeforeSerialize: function () {
         ContainerWrapper.prototype.onBeforeSerialize.call(this);
+
+        this._blendMode = this.blendMode;
     },
 
     createNode: function (node) {
@@ -55,6 +71,7 @@ var ParticleContainerWrapper = Fire.Class({
         ContainerWrapper.prototype.createNode.call(this, node);
 
         this.updateProperties(node);
+        node.blendMode = this._blendMode;
 
         return node;
     }

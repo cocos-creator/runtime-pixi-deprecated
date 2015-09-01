@@ -10,6 +10,16 @@ var SpriteWrapper = Fire.Class({
     },
 
     properties: {
+        blendMode: {
+            get: function () {
+                return this.targetN.blendMode;
+            },
+            set: function (value) {
+                this.targetN.blendMode = value;
+            },
+            type: Runtime.BLEND_MODES
+        },
+
         texture: {
             get: function () {
                 var source = this.targetN.texture.baseTexture.source;
@@ -55,6 +65,10 @@ var SpriteWrapper = Fire.Class({
 
         _tint: {
             default: 0xffffff
+        },
+
+        _blendMode: {
+            default: Runtime.BLEND_MODES.NORMAL
         }
     },
 
@@ -64,6 +78,7 @@ var SpriteWrapper = Fire.Class({
         this._texture = this.texture;
         this._anchor = [this.anchor.x, this.anchor.y];
         this._tint = this.targetN.tint;
+        this._blendMode = this.blendMode;
     },
 
     createNode: function (node) {
@@ -80,6 +95,7 @@ var SpriteWrapper = Fire.Class({
         }
 
         node.tint = this._tint;
+        node.blendMode = this._blendMode;
 
         return node;
     }

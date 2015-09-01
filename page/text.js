@@ -6,6 +6,16 @@ var TextWrapper = Fire.Class({
     extends: SpriteWrapper,
 
     properties: {
+        blendMode: {
+            get: function () {
+                return this.targetN.blendMode;
+            },
+            set: function (value) {
+                this.targetN.blendMode = value;
+            },
+            type: Runtime.BLEND_MODES
+        },
+
         text: {
             get: function () {
                 return this.targetN.text;
@@ -134,6 +144,10 @@ var TextWrapper = Fire.Class({
 
         _lineHeight: {
             default: null
+        },
+
+        _blendMode: {
+            default: Runtime.BLEND_MODES.NORMAL
         }
     },
 
@@ -169,6 +183,7 @@ var TextWrapper = Fire.Class({
         SpriteWrapper.prototype.onBeforeSerialize.call(this);
 
         this._text = this.text;
+        this._blendMode = this.blendMode;
     },
 
     createNode: function (node) {
@@ -177,6 +192,7 @@ var TextWrapper = Fire.Class({
         SpriteWrapper.prototype.createNode.call(this, node);
 
         this.updateStyle(node);
+        node.blendMode = this._blendMode;
 
         return node;
     }

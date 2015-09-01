@@ -6,6 +6,15 @@ var MovieClipWrapper = Fire.Class({
     extends: SpriteWrapper,
 
     properties: {
+        blendMode: {
+            get: function () {
+                return this.targetN.blendMode;
+            },
+            set: function (value) {
+                this.targetN.blendMode = value;
+            },
+            type: Runtime.BLEND_MODES
+        },
 
         spriteSheet: {
             default: '',
@@ -77,6 +86,10 @@ var MovieClipWrapper = Fire.Class({
             }
         },
 
+        _blendMode: {
+            default: Runtime.BLEND_MODES.NORMAL
+        },
+
         autoPlay: {
             default: true
         },
@@ -128,6 +141,7 @@ var MovieClipWrapper = Fire.Class({
 
         this._loop = this.loop;
         this._animationSpeed = this.animationSpeed;
+        this._blendMode = this.blendMode;
     },
 
     createNode: function (node) {
@@ -137,6 +151,7 @@ var MovieClipWrapper = Fire.Class({
         this.updateTextures(node);
         node.loop = this._loop;
         node.animationSpeed = this._animationSpeed;
+        node.blendMode = this._blendMode;
 
         if (this.autoPlay) {
             node.play();
