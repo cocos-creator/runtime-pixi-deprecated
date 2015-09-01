@@ -1,6 +1,7 @@
 <link rel="import" href="packages://inspector/share/node-header.html">
 <link rel="import" href="packages://inspector/share/mixins-section.html">
 <link rel="import" href="display-object-section.html">
+<link rel="import" href="sprite-section.html">
 
 <dom-module id="runtime-sprite-wrapper-inspector">
     <link rel="import" type="css" href="packages://inspector/share/common.css">
@@ -15,12 +16,8 @@
             <inspector-runtime-display-object-section target="{{target}}">
             </inspector-runtime-display-object-section>
 
-            <editor-section text="Sprite">
-                <editor-prop prop="{{target.texture}}"></editor-prop>
-                <editor-prop prop="{{target.anchor}}"></editor-prop>
-                <editor-prop prop="{{target.alpha}}"></editor-prop>
-                <editor-prop prop="{{target.tint}}"></editor-prop>
-            </editor-section>
+            <inspector-runtime-sprite-section target="{{target}}">
+            </inspector-runtime-sprite-section>
 
             <inspector-mixins-section target="{{target}}">
             </inspector-mixins-section>

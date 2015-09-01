@@ -30,6 +30,12 @@ var SpriteWrapper = Fire.Class({
             }
         },
 
+        size: {
+            get: function () {
+                return Fire.v2(this.targetN.width, this.targetN.height);
+            }
+        },
+
         alpha: {
             get: function () {
                 return this.targetN.alpha;
