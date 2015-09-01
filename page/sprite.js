@@ -13,7 +13,7 @@ var SpriteWrapper = Fire.Class({
         texture: {
             get: function () {
                 var source = this.targetN.texture.baseTexture.source;
-                return (source && source.src.replace('file://', '')) || '';
+                return (source && source.src && source.src.replace('file://', '')) || '';
             },
             set: function (value) {
                 this.targetN.texture = PIXI.Texture.fromImage(value);
@@ -33,6 +33,10 @@ var SpriteWrapper = Fire.Class({
         size: {
             get: function () {
                 return Fire.v2(this.targetN.width, this.targetN.height);
+            },
+            set: function (value) {
+                this.targetN.width = value.x;
+                this.targetN.height = value.y;
             }
         },
 

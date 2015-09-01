@@ -11,6 +11,20 @@
 
         <editor-section text="Visual">
             <editor-prop prop="{{target.pivot}}"></editor-prop>
+
+            <template is="dom-if" if="[[target.size.value]]">
+                <editor-prop prop="{{target.size}}"></editor-prop>
+            </template>
+            <template is="dom-if" if="[[target.anchor.value]]">
+                <editor-prop prop="{{target.anchor}}"></editor-prop>
+            </template>
+            <template is="dom-if" if="[[target.alpha.value]]">
+                <editor-prop prop="{{target.alpha}}"></editor-prop>
+            </template>
+            <template is="dom-if" if="[[target.tint.value]]">
+                <editor-prop prop="{{target.tint}}"></editor-prop>
+            </template>
+
         </editor-section>
     </template>
 </dom-module>
