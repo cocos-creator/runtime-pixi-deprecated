@@ -9,7 +9,7 @@
     }
   },
   {
-    "__type__": "Runtime.ContainerWrapper",
+    "__type__": "Runtime.StageWrapper",
     "content": []
   }
 ]

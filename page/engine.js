@@ -59,7 +59,7 @@ var EngineWrapper = Fire.Class({
 
         this.canvasSize = Fire.v2(width, height);
         this.designResolution = Fire.v2(options.designWidth, options.designHeight);
-        this._setCurrentSceneN(new PIXI.Container());
+        this._setCurrentSceneN(new PIXI.fireball.Stage());
 
         // Stop shared tick in editor
         if (FIRE_EDITOR) {

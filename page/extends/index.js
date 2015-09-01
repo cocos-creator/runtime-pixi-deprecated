@@ -1,0 +1,4 @@
+
+PIXI.fireball = {};
+
+require('./stage');

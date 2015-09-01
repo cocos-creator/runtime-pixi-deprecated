@@ -1,14 +1,8 @@
 var Vec2 = Fire.Vec2;
 var Helpers = Fire.Runtime.Helpers;
 
-/**
- * @class ContainerWrapper
- * @extends Fire.Runtime.ContainerWrapper
- * @constructor
- * @param {RuntimeNode} node - The root node of current stage.
- */
-var ContainerWrapper = Fire.Class({
-    name: 'Runtime.ContainerWrapper',
+var StageWrapper = Fire.Class({
+    name: 'Runtime.StageWrapper',
     extends: Fire.Runtime.SceneWrapper,
 
     properties: {
@@ -147,7 +141,7 @@ var ContainerWrapper = Fire.Class({
     },
 
     createNode: function (node) {
-        node = node || new PIXI.Container();
+        node = node || new PIXI.fireball.Stage();
 
         node.x = this._position ? this._position[0] : 0;
         node.y = this._position ? this._position[1] : 0;
@@ -174,4 +168,4 @@ if (FIRE_EDITOR) {
 }
 
 
-Runtime.ContainerWrapper = module.exports = ContainerWrapper;
+Runtime.StageWrapper = module.exports = StageWrapper;

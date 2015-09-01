@@ -4,13 +4,16 @@ var EngineWrapper = require('./engine');
 
 // require modules
 require('./utils');
+require('./extends');
 
 // register engine wrapper
 Fire.Runtime.registerEngine( new EngineWrapper(true) );
 
 // register node type
 var types = [
-    [PIXI,   'Container',          require('./container')],
+    [PIXI.fireball, 'Stage',             require('./stage')],
+
+    // [PIXI,   'Container',          require('./container')],
     [PIXI,   'DisplayObject',      require('./display-object')],
     [PIXI,   'Sprite',             require('./sprite'),          'Sprite'],
 
