@@ -31,6 +31,13 @@ var EngineWrapper = Fire.Class({
                 this._designResolution = value;
             }
         },
+
+        renderer: {
+            get: function () {
+                return this._renderer;
+            }
+        },
+
         _renderer: {
             default: null
         },
