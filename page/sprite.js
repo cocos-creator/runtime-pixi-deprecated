@@ -1,9 +1,9 @@
 
-var DisplayObjectWrapper = require('./display-object');
+var ContainerWrapper = require('./container');
 
 var SpriteWrapper = Fire.Class({
     name: 'Runtime.SpriteWrapper',
-    extends: DisplayObjectWrapper,
+    extends: ContainerWrapper,
 
     constructor: function () {
         this._anchor = [0.5, 0.5];
@@ -82,7 +82,7 @@ var SpriteWrapper = Fire.Class({
     },
 
     onBeforeSerialize: function () {
-        DisplayObjectWrapper.prototype.onBeforeSerialize.call(this);
+        ContainerWrapper.prototype.onBeforeSerialize.call(this);
 
         this._texture = this.texture;
         this._anchor = [this.anchor.x, this.anchor.y];
@@ -94,7 +94,7 @@ var SpriteWrapper = Fire.Class({
     createNode: function (node) {
         node = node || new PIXI.Sprite();
 
-        DisplayObjectWrapper.prototype.createNode.call(this, node);
+        ContainerWrapper.prototype.createNode.call(this, node);
 
         if (this._texture) {
             node.texture = PIXI.Texture.fromImage(this._texture);
