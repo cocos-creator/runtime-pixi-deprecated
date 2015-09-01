@@ -1,15 +1,6 @@
 
 var SpriteWrapper = require('../sprite');
 
-var MovieClipInfo = Fire.Class({
-    name: 'Runtime.MovieClipInfo',
-
-    properties: {
-        prefix: '',
-        range: Fire.Vec2.zero
-    }
-});
-
 var MovieClipWrapper = Fire.Class({
     name: 'Runtime.MovieClipWrapper',
     extends: SpriteWrapper,
