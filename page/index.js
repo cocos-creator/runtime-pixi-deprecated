@@ -22,6 +22,7 @@ var types = [
     [PIXI,          'ParticleContainer',require('./particle-container'),    'ParticleContainer'],
 
     [PIXI.mesh,     'Mesh',             require('./mesh'),                  'Mesh'],
+    [PIXI.mesh,     'Rope',             require('./rope'),                  'Rope'],
 
     [PIXI.extras,   'TilingSprite',     require('./extras/tiling-sprite'),  'TilingSprite'],
     [PIXI.extras,   'MovieClip',        require('./extras/movie-clip'),     'MovieClip'],
