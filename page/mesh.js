@@ -31,6 +31,25 @@ var MeshWrapper = Fire.Class({
             url: Fire.Texture
         },
 
+        drawMode: {
+            get: function () {
+                return this.targetN.drawMode;
+            },
+            set: function (value) {
+                if (typeof value === 'number' && !isNaN(value)) {
+                    this.targetN.drawMode = value;
+                }
+                else {
+                    Fire.error('The new drawMode must be number');
+                }
+            },
+            type: Runtime.MeshDrawMode
+        },
+
+        _drawMode: {
+            default: Runtime.MeshDrawMode.TriangleMesh
+        },
+
         _texture: {
             default: '',
             url: Fire.Texture
@@ -46,6 +65,7 @@ var MeshWrapper = Fire.Class({
 
         this._texture = this.texture;
         this._blendMode = this.blendMode;
+        this._drawMode = this.drawMode;
     },
 
     createNode: function (node) {
@@ -57,6 +77,7 @@ var MeshWrapper = Fire.Class({
             node.texture = PIXI.Texture.fromImage(this._texture);
         }
 
+        node.drawMode = this._drawMode;
         node.blendMode = this._blendMode;
 
         return node;

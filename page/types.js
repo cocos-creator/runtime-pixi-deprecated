@@ -23,3 +23,8 @@ Runtime.TextureType = Fire.defineEnum({
     Image : -1,
     Video : -1
 });
+
+Runtime.MeshDrawMode = Fire.defineEnum({
+    TriangleMesh : PIXI.mesh.Mesh.DRAW_MODES.TRIANGLE_MESH,
+    Triangles    : PIXI.mesh.Mesh.DRAW_MODES.TRIANGLES
+});
