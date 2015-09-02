@@ -7,6 +7,7 @@ if ( Editor.isCoreLevel || Editor.isRuntime ) {
 [
     'sprite-sheet',
     'video',
+    'spine'
 ].forEach( function ( name ) {
 
     if ( !Editor.isRuntime ) {
@@ -37,6 +38,7 @@ if ( !Editor.isRuntime ) {
         Editor.inspectors['Runtime.RopeWrapper'] = 'app://runtime/runtime-pixi/share/inspector/rope-wrapper.html';
         Editor.inspectors['Runtime.MovieClipWrapper'] = 'app://runtime/runtime-pixi/share/inspector/movie-clip-wrapper.html';
         Editor.inspectors['Runtime.TilingSpriteWrapper'] = 'app://runtime/runtime-pixi/share/inspector/tiling-sprite-wrapper.html';
+        Editor.inspectors['Runtime.SpineWrapper'] = 'app://runtime/runtime-pixi/share/inspector/spine-wrapper.html';
 
         // register asset property
         Editor.properties['Runtime.SpriteSheet'] = function ( fieldEL, info ) {
@@ -45,6 +47,10 @@ if ( !Editor.isRuntime ) {
 
         Editor.properties['Runtime.VideoAsset'] = function ( fieldEL, info ) {
             return Editor.bindAsset( fieldEL, info.value, info.attrs, 'video' );
+        };
+
+        Editor.properties['Runtime.SpineAsset'] = function ( fieldEL, info ) {
+            return Editor.bindAsset( fieldEL, info.value, info.attrs, 'spine' );
         };
 
         // register node property

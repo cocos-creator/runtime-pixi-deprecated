@@ -21,6 +21,8 @@ var types = [
     [PIXI,          'Graphics',         require('./graphics'),              'Graphics'],
     [PIXI,          'ParticleContainer',require('./particle-container'),    'ParticleContainer'],
 
+    [PIXI.spine,    'Spine',            require('./spine'),                 'Spine'],
+
     [PIXI.mesh,     'Mesh',             require('./mesh'),                  'Mesh'],
     [PIXI.mesh,     'Rope',             require('./rope'),                  'Rope'],
 

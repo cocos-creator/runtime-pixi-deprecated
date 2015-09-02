@@ -1,0 +1,52 @@
+<link rel="import" href="packages://inspector/share/node-header.html">
+<link rel="import" href="packages://inspector/share/mixins-section.html">
+<link rel="import" href="display-object-section.html">
+
+<dom-module id="runtime-spine-wrapper-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-node-header
+            name="{{target.name.value}}"
+        >
+        </inspector-node-header>
+
+        <div class="props flex-1">
+            <inspector-runtime-display-object-section target="{{target}}">
+            </inspector-runtime-display-object-section>
+
+
+            <editor-section text="Spine">
+                <editor-prop prop="{{target.spineData}}"></editor-prop>
+                <editor-prop prop="{{target.skin}}"></editor-prop>
+                <editor-prop prop="{{target.startAnimation}}"></editor-prop>
+                <editor-prop prop="{{target.loop}}"></editor-prop>
+            </editor-section>
+
+            <inspector-mixins-section target="{{target}}">
+            </inspector-mixins-section>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'runtime-spine-wrapper-inspector',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+
+        _isTextureImageMode: function(mode) {
+            return mode === 0;
+        },
+
+        _isTextureVideoMode: function(mode) {
+            return mode === 1;
+        }
+    });
+</script>
