@@ -33,6 +33,7 @@ if ( !Editor.isRuntime ) {
         Editor.inspectors['Runtime.GraphicsWrapper'] = 'app://runtime/runtime-pixi/share/inspector/graphics-wrapper.html';
         Editor.inspectors['Runtime.ParticleContainerWrapper'] = 'app://runtime/runtime-pixi/share/inspector/particle-container-wrapper.html';
         Editor.inspectors['Runtime.MovieClipWrapper'] = 'app://runtime/runtime-pixi/share/inspector/movie-clip-wrapper.html';
+        Editor.inspectors['Runtime.TilingSpriteWrapper'] = 'app://runtime/runtime-pixi/share/inspector/tiling-sprite-wrapper.html';
 
         // register property
         Editor.properties['Runtime.SpriteSheet'] = function ( fieldEL, info ) {
