@@ -7,6 +7,7 @@ Runtime.init = function (assetdb) {
         ED.versions['runtime-pixi'] = packageJson['version'];
 
         Editor.assetdb.register( '.json', false, Editor.metas['sprite-sheet'] );
+        Editor.assetdb.register( '.json', false, Editor.metas['spine'] );
         Editor.assetdb.register( '.mp4',  false, Editor.metas['video'] );
     }
 };

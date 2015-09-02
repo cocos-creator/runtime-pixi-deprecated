@@ -1,0 +1,20 @@
+<link rel="import" href="packages://inspector/share/meta-header.html">
+
+<dom-module id="spine-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-meta-header
+            target="[[target]]"
+            icon="app://runtime/runtime-pixi/static/icon/spine.png"
+            dirty="{{dirty}}"
+        >
+        </inspector-meta-header>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'spine-inspector',
+    });
+</script>
