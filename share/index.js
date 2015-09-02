@@ -33,6 +33,7 @@ if ( !Editor.isRuntime ) {
         Editor.inspectors['Runtime.TextWrapper'] = 'app://runtime/runtime-pixi/share/inspector/text-wrapper.html';
         Editor.inspectors['Runtime.GraphicsWrapper'] = 'app://runtime/runtime-pixi/share/inspector/graphics-wrapper.html';
         Editor.inspectors['Runtime.ParticleContainerWrapper'] = 'app://runtime/runtime-pixi/share/inspector/particle-container-wrapper.html';
+        Editor.inspectors['Runtime.MeshWrapper'] = 'app://runtime/runtime-pixi/share/inspector/mesh-wrapper.html';
         Editor.inspectors['Runtime.MovieClipWrapper'] = 'app://runtime/runtime-pixi/share/inspector/movie-clip-wrapper.html';
         Editor.inspectors['Runtime.TilingSpriteWrapper'] = 'app://runtime/runtime-pixi/share/inspector/tiling-sprite-wrapper.html';
 

@@ -1,0 +1,52 @@
+<link rel="import" href="packages://inspector/share/node-header.html">
+<link rel="import" href="packages://inspector/share/mixins-section.html">
+<link rel="import" href="display-object-section.html">
+
+<dom-module id="runtime-mesh-wrapper-inspector">
+    <link rel="import" type="css" href="packages://inspector/share/common.css">
+
+    <template>
+        <inspector-node-header
+            name="{{target.name.value}}"
+        >
+        </inspector-node-header>
+
+        <div class="props flex-1">
+            <inspector-runtime-display-object-section target="{{target}}">
+            </inspector-runtime-display-object-section>
+
+            <editor-section text="BlendMode">
+                <editor-prop prop="{{target.blendMode}}"></editor-prop>
+            </editor-section>
+
+            <editor-section text="Texture">
+                <editor-prop prop="{{target.texture}}"></editor-prop>
+            </editor-section>
+
+            <inspector-mixins-section target="{{target}}">
+            </inspector-mixins-section>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'runtime-mesh-wrapper-inspector',
+
+        properties: {
+            target: {
+                type: Object,
+                value: null,
+                notify: true,
+            },
+        },
+
+        _isTextureImageMode: function(mode) {
+            return mode === 0;
+        },
+
+        _isTextureVideoMode: function(mode) {
+            return mode === 1;
+        }
+    });
+</script>
