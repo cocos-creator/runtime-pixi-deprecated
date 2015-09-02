@@ -13,7 +13,7 @@ var ParticleContainerWrapper = Fire.Class({
             set: function (value) {
                 this.targetN.blendMode = value;
             },
-            type: Runtime.BLEND_MODES
+            type: Runtime.BlendModes
         },
 
         maxSize: {
@@ -41,7 +41,7 @@ var ParticleContainerWrapper = Fire.Class({
         },
 
         _blendMode: {
-            default: Runtime.BLEND_MODES.NORMAL
+            default: Runtime.BlendModes.NORMAL
         }
     },
 

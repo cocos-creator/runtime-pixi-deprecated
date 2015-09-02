@@ -1,5 +1,5 @@
 
-Runtime.BLEND_MODES = Fire.defineEnum({
+Runtime.BlendModes = Fire.defineEnum({
     NORMAL          : PIXI.BLEND_MODES.NORMAL,
     ADD             : PIXI.BLEND_MODES.ADD,
     MULTIPLY        : PIXI.BLEND_MODES.MULTIPLY,

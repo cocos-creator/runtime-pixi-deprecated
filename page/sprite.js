@@ -17,7 +17,7 @@ var SpriteWrapper = Fire.Class({
             set: function (value) {
                 this.targetN.blendMode = value;
             },
-            type: Runtime.BLEND_MODES
+            type: Runtime.BlendModes
         },
 
         texture: {
@@ -68,7 +68,7 @@ var SpriteWrapper = Fire.Class({
         },
 
         _blendMode: {
-            default: Runtime.BLEND_MODES.NORMAL
+            default: Runtime.BlendModes.NORMAL
         }
     },
 
