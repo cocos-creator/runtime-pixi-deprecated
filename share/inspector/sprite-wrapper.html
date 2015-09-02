@@ -20,7 +20,15 @@
             </editor-section>
 
             <editor-section text="Sprite">
-                <editor-prop prop="{{target.texture}}"></editor-prop>
+                <editor-prop prop="{{target.textureType}}"></editor-prop>
+
+                <template is="dom-if" if="[[_isTextureImageMode(target.textureType.value)]]">
+                    <editor-prop prop="{{target.texture}}"></editor-prop>
+                </template>
+
+                <template is="dom-if" if="[[_isTextureVideoMode(target.textureType.value)]]">
+                    <editor-prop prop="{{target.videoTexture}}"></editor-prop>
+                </template>
             </editor-section>
 
             <inspector-mixins-section target="{{target}}">
@@ -40,5 +48,13 @@
                 notify: true,
             },
         },
+
+        _isTextureImageMode: function(mode) {
+            return mode === 0;
+        },
+
+        _isTextureVideoMode: function(mode) {
+            return mode === 1;
+        }
     });
 </script>

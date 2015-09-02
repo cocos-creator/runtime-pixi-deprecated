@@ -18,3 +18,8 @@ Runtime.BlendModes = Fire.defineEnum({
     COLOR           : PIXI.BLEND_MODES.COLOR,
     LUMINOSITY      : PIXI.BLEND_MODES.LUMINOSITY
 });
+
+Runtime.TextureType = Fire.defineEnum({
+    Image : -1,
+    Video : -1
+});

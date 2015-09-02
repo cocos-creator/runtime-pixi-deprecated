@@ -20,8 +20,19 @@ var SpriteWrapper = Fire.Class({
             type: Runtime.BlendModes
         },
 
+        textureType: {
+            default: Runtime.TextureType.Image,
+            type: Runtime.TextureType,
+
+            notify: function () {
+                this.targetN.texture = PIXI.Texture.EMPTY;
+            }
+        },
+
         texture: {
             get: function () {
+                if (this.textureType !== Runtime.TextureType.Image) return '';
+
                 var source = this.targetN.texture.baseTexture.source;
                 return (source && source.src && source.src.replace('file://', '')) || '';
             },
@@ -29,6 +40,19 @@ var SpriteWrapper = Fire.Class({
                 this.targetN.texture = PIXI.Texture.fromImage(value);
             },
             url: Fire.Texture
+        },
+
+        videoTexture: {
+            get: function () {
+                if (this.textureType !== Runtime.TextureType.Video) return '';
+
+                var source = this.targetN.texture.baseTexture.source;
+                return (source && source.currentSrc && source.currentSrc.replace('file://', '')) || '';
+            },
+            set: function (value) {
+                this.targetN.texture = PIXI.Texture.fromVideo(value);
+            },
+            url: Runtime.VideoAsset
         },
 
         anchor: {
@@ -54,9 +78,18 @@ var SpriteWrapper = Fire.Class({
             type: Fire.Color
         },
 
+        _textureType: {
+            default: Runtime.TextureType.Image
+        },
+
         _texture: {
             default: '',
             url: Fire.Texture
+        },
+
+        _videoTexture: {
+            default: '',
+            url: Runtime.VideoAsset
         },
 
         _anchor: {
@@ -75,6 +108,8 @@ var SpriteWrapper = Fire.Class({
     onBeforeSerialize: function () {
         ContainerWrapper.prototype.onBeforeSerialize.call(this);
 
+        this._textureType = this.textureType;
+        this._videoTexture = this.videoTexture;
         this._texture = this.texture;
         this._anchor = [this.anchor.x, this.anchor.y];
         this._tint = this.targetN.tint;
@@ -86,8 +121,15 @@ var SpriteWrapper = Fire.Class({
 
         ContainerWrapper.prototype.createNode.call(this, node);
 
-        if (this._texture) {
+        var isImageType = this._textureType === Runtime.TextureType.Image;
+        var isVideoType = this._textureType === Runtime.TextureType.Video;
+
+        if (isImageType && this._texture) {
             node.texture = PIXI.Texture.fromImage(this._texture);
+        }
+
+        if (isVideoType && this._videoTexture) {
+            node.texture = PIXI.Texture.fromVideo(this._videoTexture);
         }
 
         if (this._anchor) {
