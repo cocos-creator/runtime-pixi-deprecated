@@ -6,6 +6,7 @@ if ( Editor.isCoreLevel || Editor.isRuntime ) {
 // meta and meta inspector
 [
     'sprite-sheet',
+    'video',
 ].forEach( function ( name ) {
 
     if ( !Editor.isRuntime ) {
@@ -35,11 +36,16 @@ if ( !Editor.isRuntime ) {
         Editor.inspectors['Runtime.MovieClipWrapper'] = 'app://runtime/runtime-pixi/share/inspector/movie-clip-wrapper.html';
         Editor.inspectors['Runtime.TilingSpriteWrapper'] = 'app://runtime/runtime-pixi/share/inspector/tiling-sprite-wrapper.html';
 
-        // register property
+        // register asset property
         Editor.properties['Runtime.SpriteSheet'] = function ( fieldEL, info ) {
             return Editor.bindAsset( fieldEL, info.value, info.attrs, 'sprite-sheet' );
         };
 
+        Editor.properties['Runtime.VideoAsset'] = function ( fieldEL, info ) {
+            return Editor.bindAsset( fieldEL, info.value, info.attrs, 'video' );
+        };
+
+        // register node property
         Editor.properties['Runtime.DisplayObjectWrapper'] = function ( fieldEL, info ) {
             return Editor.bindNode( fieldEL, info.value, info.attrs, 'Runtime.DisplayObjectWrapper' );
         };
