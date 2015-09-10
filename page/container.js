@@ -28,6 +28,10 @@ var ContainerWrapper = Fire.Class({
 
         _alpha: {
             default: 1
+        },
+
+        _size: {
+            default: null
         }
     },
 
@@ -35,6 +39,7 @@ var ContainerWrapper = Fire.Class({
         DisplayObjectWrapper.prototype.onBeforeSerialize.call(this);
 
         this._alpha = this.alpha;
+        this._size  = [this.size.x, this.size.y];
     },
 
     createNode: function (node) {
@@ -42,6 +47,8 @@ var ContainerWrapper = Fire.Class({
 
         DisplayObjectWrapper.prototype.createNode.call(this, node);
 
+        node.width = this._size ? this._size[0] : 0;
+        node.height = this._size ? this._size[1] : 0;
         node.alpha = this._alpha;
 
         return node;
