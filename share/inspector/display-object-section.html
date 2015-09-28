@@ -27,18 +27,16 @@
 
         </editor-section>
     </template>
-</dom-module>
 
-<script>
-    Polymer({
-        is: 'inspector-runtime-display-object-section',
-
-        properties: {
-            target: {
-                type: Object,
-                value: null,
-                notify: true,
+    <script>
+        Editor.registerElement({
+            properties: {
+                target: {
+                    type: Object,
+                    value: null,
+                    notify: true,
+                },
             },
-        },
-    });
-</script>
+        });
+    </script>
+</dom-module>

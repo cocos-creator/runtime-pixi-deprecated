@@ -29,18 +29,16 @@
             </inspector-mixins-section>
         </div>
     </template>
-</dom-module>
 
-<script>
-    Polymer({
-        is: 'runtime-tiling-sprite-wrapper-inspector',
-
-        properties: {
-            target: {
-                type: Object,
-                value: null,
-                notify: true,
+    <script>
+        Editor.registerElement({
+            properties: {
+                target: {
+                    type: Object,
+                    value: null,
+                    notify: true,
+                },
             },
-        },
-    });
-</script>
+        });
+    </script>
+</dom-module>

@@ -28,18 +28,16 @@
             </inspector-mixins-section>
         </div>
     </template>
+
+    <script>
+        Editor.registerElement({
+            properties: {
+                target: {
+                    type: Object,
+                    value: null,
+                    notify: true,
+                },
+            }
+        });
+    </script>
 </dom-module>
-
-<script>
-    Polymer({
-        is: 'runtime-rope-wrapper-inspector',
-
-        properties: {
-            target: {
-                type: Object,
-                value: null,
-                notify: true,
-            },
-        }
-    });
-</script>

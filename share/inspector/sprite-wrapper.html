@@ -35,26 +35,24 @@
             </inspector-mixins-section>
         </div>
     </template>
-</dom-module>
 
-<script>
-    Polymer({
-        is: 'runtime-sprite-wrapper-inspector',
-
-        properties: {
-            target: {
-                type: Object,
-                value: null,
-                notify: true,
+    <script>
+        Editor.registerElement({
+            properties: {
+                target: {
+                    type: Object,
+                    value: null,
+                    notify: true,
+                },
             },
-        },
 
-        _isTextureImageMode: function(mode) {
-            return mode === 0;
-        },
+            _isTextureImageMode: function(mode) {
+                return mode === 0;
+            },
 
-        _isTextureVideoMode: function(mode) {
-            return mode === 1;
-        }
-    });
-</script>
+            _isTextureVideoMode: function(mode) {
+                return mode === 1;
+            }
+        });
+    </script>
+</dom-module>
